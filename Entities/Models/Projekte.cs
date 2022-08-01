@@ -3,15 +3,17 @@ using System.Collections.Generic;
 
 namespace Entities.Models
 {
-    public partial class Role
+    public partial class Projekte
     {
-        public Role()
+        public Projekte()
         {
             Punonjes = new HashSet<Punonje>();
         }
 
-        public Guid RoleId { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; } = null!;
+        public DateTime DateFrom { get; set; }
+        public DateTime DateTo { get; set; }
 
         public virtual ICollection<Punonje> Punonjes { get; set; }
     }

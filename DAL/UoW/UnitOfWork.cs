@@ -12,12 +12,13 @@ namespace DAL.UoW
     {
         private readonly IContainer _container;
 
-        private readonly RecrutimentContext _context;
+        private readonly HR1Context _context;
 
-        public UnitOfWork(IContainer container, RecrutimentContext context)
+        public UnitOfWork(IContainer container, HR1Context context)
         {
             _container = container;
             _context = context;
+            
         }
 
         public TRepository GetRepository<TRepository>() where TRepository : class
@@ -28,11 +29,12 @@ namespace DAL.UoW
         public int Save()
         {
             return _context.SaveChanges();
+           
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            //_context.Dispose();
             GC.SuppressFinalize(this);
         }
     }

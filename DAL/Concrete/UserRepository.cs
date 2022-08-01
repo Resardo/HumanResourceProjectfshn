@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace DAL.Concrete
 {
-    internal class UserRepository : BaseRepository<User, Guid>, IUserRepository
+    internal class UserRepository : BaseRepository<Punonje, Guid>, IUserRepository
     {
 
-        public UserRepository(RecrutimentContext dbContext) : base(dbContext)
+        public UserRepository(HR1Context dbContext) : base(dbContext)
         {
         }
 
-        public User GetById(Guid id)
+        public Punonje GetById(Guid id)
         {
-            var user = context.Where(a => a.UserId == id).FirstOrDefault();
+            var user = context.Where(a => a.Id == id).FirstOrDefault();
             return user;
         }
 
