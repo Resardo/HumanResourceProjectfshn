@@ -3,7 +3,7 @@ using DAL.Contracts;
 using DAL.UoW;
 using Domain.Contracts;
 using DTO.UserDTO;
-using Entities.Models;
+using Entities.Model;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -22,14 +22,14 @@ namespace Domain.Concrete
         private IUserRepository userRepository => _unitOfWork.GetRepository<IUserRepository>();
         public IList<UserDTO> GetAllUsers()
         {
-            IEnumerable<Punonje> user = userRepository.GetAll();
+            IEnumerable<Employee> user = userRepository.GetAll();
             var test = _mapper.Map<IList<UserDTO>>(user);
             return test;
         }
 
         public UserDTO GetUserById(Guid id)
         {
-            Punonje user = userRepository.GetById(id);
+            Employee user = userRepository.GetById(id);
             return _mapper.Map<UserDTO>(user);
         }
     }

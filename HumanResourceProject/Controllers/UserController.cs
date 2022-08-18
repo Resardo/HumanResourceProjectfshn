@@ -1,6 +1,9 @@
 ﻿using Domain.Contracts;
+using DTO.LoginDTO;
 using DTO.UserDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace HumanResourceProject.Controllers
 
@@ -16,6 +19,15 @@ namespace HumanResourceProject.Controllers
             _userDomain = userDomain;
         }
 
+        //[Authorize]
+        //[HttpGet]
+        //[Route("public")]
+        
+        //public IActionResult Public()
+        //{
+        //    var currentUser = GetCurrentUser();
+        //    return Ok(currentUser);
+        //}
 
         [HttpGet]
         [Route("getAllUsers")]
@@ -45,7 +57,7 @@ namespace HumanResourceProject.Controllers
             }
         }
 
-
+        
         [HttpGet]
         [Route("{userId}")]
         public IActionResult GetUserById([FromRoute] Guid userId)
@@ -67,6 +79,23 @@ namespace HumanResourceProject.Controllers
                 throw ex;
             }
         }
+
+        //public LoginDTO GetCurrentUser()
+        //{
+        //    var identity = HttpContext.User.Identity as ClaimsIdentity;
+        //    if (identity != null)
+        //    {
+        //        var userClaims = identity.Claims;
+        //        return new LoginDTO
+        //        {
+        //            Username = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value,
+        //            Email = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value,
+
+        //        };
+        //    }
+        //    return null;
+
+        //}
     }
 }
 

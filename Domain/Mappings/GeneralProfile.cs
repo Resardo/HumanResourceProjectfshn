@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using DTO.LoginDTO;
 using DTO.UserDTO;
+using Entities.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +12,18 @@ namespace Domain.Mappings
 {
     public class GeneralProfile : Profile
     {
-        #region User
+        #region Employee
         public GeneralProfile()
         {
-        //   CreateMap<User, UserDTO>().ReverseMap();
-
+           CreateMap<Employee, LoginDTO>().ReverseMap();
+           CreateMap<Employee, UserDTO>().ReverseMap();
+            CreateMap<LoginCredentialsDTO, Employee>().ForSourceMember(x => x.Password, opt => opt.DoNotValidate());
+           
+            
         }
 
         #endregion
-
+        
 
     }
 }
