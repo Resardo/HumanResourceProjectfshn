@@ -24,6 +24,9 @@ namespace Domain.DI
             For<IArchiveDomain>().Use<ArchiveDomain>();
 
             For<IPermitDomain>().Use<PermitDomain>();
+            For<ILoginDomain>().Use<LoginDomain>();
+            For<IEducationDomain>().Use<EducationDomain>();
+            For<IJobDomain>().Use<JobDomain>();
             AddRepositoryRegistries();
             AddHttpContextRegistries();
         }

@@ -28,6 +28,9 @@ namespace DAL.DI
            
 
             For<IArchiveRepository>().Use<ArchiveRepository>();
+            For<ILoginRepository>().Use<LoginRepository>();
+            For<IEducationRepository>().Use<EducationRepository>();
+            For<IJobRepository>().Use<JobRepository>();
             // For<IUserRepository>().Use<UserRepository>();
         }
 
