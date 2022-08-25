@@ -30,19 +30,18 @@ namespace Domain.Concrete
             
             var data = _mapper.Map<LoginCredentialsDTO, Employee>(dto);
             var login = loginRepository.Generate(data);
-            //var verify = VerifyPasswordHash(dto.Password, login.PasswordHash);
-            //var test = System.Convert.ToBase64String(dto.Password);
 
 
-            string str = Convert.ToBase64String(login.PasswordHash);
+            //var verify = VerifyPasswordHash(dto.Password,login.PasswordHash);
 
-            byte[] data1 = Convert.FromBase64String(dto.Password);
-            string decodedString = Encoding.UTF8.GetString(data1);
-            //if (verify == true)
+            //byte[] bytes = Convert.FromBase64String(dto.Password);
+            //string credentials = Encoding.UTF8.GetString(bytes);
+
+            //if (bytes.Equals(dto.Password))
             //{
             //    var result = _mapper.Map<Employee, LoginDTO>(login);
-            //        return result;
-            // }
+            //    return result;
+            //}
             return null;
             }
             
@@ -60,12 +59,25 @@ namespace Domain.Concrete
             {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
 
-                for (int i = 0; i < computedHash.Length; i++)
-                {
-                    if (computedHash[i] != passwordHash[i]) return false;
-                }
-                return true;
+            //    for (int i = 0; i < computedHash.Length; i++)
+            //    {
+            //        if (computedHash[i] != passwordHash[i])
+            //        {
+
+            //            return false;
+            //        }
+            //    }
+            //    return true;
+            
+            return computedHash.SequenceEqual(passwordHash);
             }
+        }
+
+
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
 

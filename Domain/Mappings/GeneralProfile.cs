@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DTO.EducationDTO;
 using DTO.LoginDTO;
 using DTO.UserDTO;
 using Entities.Model;
@@ -17,9 +18,10 @@ namespace Domain.Mappings
         {
            CreateMap<Employee, LoginDTO>().ReverseMap();
            CreateMap<Employee, UserDTO>().ReverseMap();
-            CreateMap<LoginCredentialsDTO, Employee>().ForSourceMember(x => x.Password, opt => opt.DoNotValidate());
-           
-            
+          // CreateMap<LoginCredentialsDTO, Employee>().ForSourceMember(x => x.Password, opt => opt.DoNotValidate());
+           CreateMap<Education, EducationDTO>().ReverseMap();
+
+
         }
 
         #endregion

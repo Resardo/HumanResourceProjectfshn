@@ -15,8 +15,9 @@ namespace DAL.DI
         {
             IncludeRegistry<UnitOfWorkRegistry>();
 
-            For<IUserRepository>().Use<UserRepository>();
             For<ILoginRepository>().Use<LoginRepository>();
+            For<IEducationRepository>().Use<EducationRepository>();
+            For<IJobRepository>().Use<JobRepository>();
         }
 
 
