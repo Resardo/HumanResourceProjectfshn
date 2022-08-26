@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Contracts
 {
+    /*
     public interface IUserDomain
     {
         IList<UserDTO> GetAllUsers();
         UserDTO GetUserById(Guid id);
     }
+    */
 }

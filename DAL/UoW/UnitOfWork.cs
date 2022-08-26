@@ -8,18 +8,17 @@ using Lamar;
 
 namespace DAL.UoW
 {
+    
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IContainer _container;
 
-        private readonly HumanResourcesContext _context;
+        private readonly  HumanResourcesContext _context;
 
         public UnitOfWork(IContainer container, HumanResourcesContext context)
         {
             _container = container;
             _context = context;
-            //comment
-            //
         }
 
         public TRepository GetRepository<TRepository>() where TRepository : class
@@ -30,14 +29,13 @@ namespace DAL.UoW
         public int Save()
         {
             return _context.SaveChanges();
-           
         }
 
         public void Dispose()
         {
-            //_context.Dispose();
+            _context.Dispose();
             GC.SuppressFinalize(this);
         }
     }
-
+    
 }
