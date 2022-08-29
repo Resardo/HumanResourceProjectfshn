@@ -1,4 +1,4 @@
-﻿using Entities.Model;
+﻿using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace DAL.Contracts
 {
-    public interface IUserRepository : IRepository<Employee, Guid>
+    public interface IUserRepository: IRepository<User, Guid>
     {
         Employee GetById(Guid id);
     }
+    */
 }

@@ -1,5 +1,5 @@
 ﻿using DAL.Contracts;
-using Entities.Model;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL.Concrete
 {
-    internal class UserRepository : BaseRepository<Employee, Guid>, IUserRepository
+    internal class UserRepository : BaseRepository<User, Guid>, IUserRepository
     {
 
         public UserRepository(HumanResourcesContext dbContext) : base(dbContext)
         {
-        }
+        }//
 
         public Employee GetById(Guid id)
         {
@@ -23,6 +23,6 @@ namespace DAL.Concrete
 
 
     }
-
+    */
 
 }

@@ -1,13 +1,12 @@
 ﻿using Domain.Contracts;
-using DTO.LoginDTO;
 using DTO.UserDTO;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace HumanResourceProject.Controllers
 
 {
+    /*
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
@@ -97,5 +96,6 @@ namespace HumanResourceProject.Controllers
 
         //}
     }
+    */
 }
 
