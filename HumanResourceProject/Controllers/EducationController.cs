@@ -1,6 +1,5 @@
 ﻿using Domain.Contracts;
 using DTO.EducationDTO;
-using Entities.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -45,6 +44,11 @@ namespace HumanResourceProject.Controllers
             }
 
 
+        }
+        [HttpGet]
+        public IActionResult TestMEthod()
+        {
+            return null;
         }
 
 
