@@ -29,7 +29,7 @@ namespace Domain.Concrete
 
             var data = _mapper.Map<LoginCredentialsDTO, Employee>(dto);
             var login = loginRepository.Generate(data);
-            var role = login.UserRoles.FirstOrDefault().ToList();
+            //var role = login.UserRoles.FirstOrDefault().ToString();
             if (login == null) { return null; }
             else
             {
@@ -42,7 +42,7 @@ namespace Domain.Concrete
                 if (pass1.Equals(dto.Password))
                 {
                     var result = _mapper.Map<Employee, LoginDTO>(login);
-                    result.Role = role;
+                    //result.Role = role;
                     return result;
                 }
                 return null;
@@ -80,6 +80,9 @@ namespace Domain.Concrete
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
-
+        public LoginDTO GetAllUsers(LoginCredentialsDTO dto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
