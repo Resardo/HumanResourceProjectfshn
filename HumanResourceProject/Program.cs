@@ -51,9 +51,13 @@ builder.Services.AddAutoMapper(typeof(GeneralProfile));
 
 
 builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", b => b.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
-});
+
+    
+    options.AddPolicy(name: "NgOrigins",
+    policy =>
+    { 
+        policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+}));
 
 // use Lamar as DI.
 builder.Host.UseLamar((context, registry) =>
@@ -73,7 +77,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("NgOrigins");
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

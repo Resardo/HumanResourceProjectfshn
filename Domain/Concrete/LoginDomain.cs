@@ -3,7 +3,6 @@ using DAL.Contracts;
 using DAL.UoW;
 using Domain.Contracts;
 using DTO.LoginDTO;
-using DTO.UserDTO;
 using Entities.Model;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -30,28 +29,25 @@ namespace Domain.Concrete
             
             var data = _mapper.Map<LoginCredentialsDTO, Employee>(dto);
             var login = loginRepository.Generate(data);
+            
 
 
-            //var verify = VerifyPasswordHash(dto.Password,login.PasswordHash);
+            //var verify = VerifyPasswordHash(dto.Password, login.PasswordHash);
 
             //byte[] bytes = Convert.FromBase64String(dto.Password);
             //string credentials = Encoding.UTF8.GetString(bytes);
 
-            //if (bytes.Equals(dto.Password))
-            //{
-            //    var result = _mapper.Map<Employee, LoginDTO>(login);
-            //    return result;
-            //}
+            if (login!=null)
+            {
+                var result = _mapper.Map<Employee, LoginDTO>(login);
+                return result;
+            }
             return null;
             }
             
         
 
-        public UserDTO GetUserById(Guid id)
-        {
-            Employee user = loginRepository.GetById(id);
-            return _mapper.Map<UserDTO>(user);
-        }
+       
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash)
         {

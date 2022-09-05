@@ -1,5 +1,4 @@
 ﻿using DTO.LoginDTO;
-using DTO.UserDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +10,6 @@ namespace Domain.Contracts
     public interface ILoginDomain
     {
        LoginDTO GetAllUsers(LoginCredentialsDTO dto);
-        UserDTO GetUserById(Guid id);
+        
     }
 }

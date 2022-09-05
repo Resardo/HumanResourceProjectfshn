@@ -17,7 +17,7 @@ namespace Domain.DI
         {
             IncludeRegistry<DomainUnitOfWorkRegistry>();
 
-            For<IUserDomain>().Use<UserDomain>();
+            
 
             For<IPermitDomain>().Use<PermitDomain>();
             For<ILoginDomain>().Use<LoginDomain>();

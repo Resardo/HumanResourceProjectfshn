@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using DAL.UoW;
 using Domain.Contracts;
-using DTO.UserDTO;
 using DTO.EducationDTO;
 using Entities.Model;
 using Microsoft.AspNetCore.Http;
