@@ -22,28 +22,32 @@ namespace Domain.Concrete
         }
         private ILoginRepository loginRepository => _unitOfWork.GetRepository<ILoginRepository>();
 
-        public  LoginDTO GetAllUsers(LoginCredentialsDTO dto)
+        public LoginDTO Auth(LoginCredentialsDTO dto)
         {
 
 
-            
+
             var data = _mapper.Map<LoginCredentialsDTO, Employee>(dto);
             var login = loginRepository.Generate(data);
-            
-
-
-            //var verify = VerifyPasswordHash(dto.Password, login.PasswordHash);
-
-            //byte[] bytes = Convert.FromBase64String(dto.Password);
-            //string credentials = Encoding.UTF8.GetString(bytes);
-
-            if (login!=null)
+            var role = login.UserRoles.FirstOrDefault().ToList();
+            if (login == null) { return null; }
+            else
             {
-                var result = _mapper.Map<Employee, LoginDTO>(login);
-                return result;
+                string passwordStr = Convert.ToBase64String(login.PasswordHash);
+                var passChanged = passwordStr.Remove(8, 1).Insert(8, "B");
+                string[] pass = passChanged.Split("B");
+                string pass1 = pass[0];
+
+
+                if (pass1.Equals(dto.Password))
+                {
+                    var result = _mapper.Map<Employee, LoginDTO>(login);
+                    result.Role = role;
+                    return result;
+                }
+                return null;
             }
-            return null;
-            }
+        }
             
         
 

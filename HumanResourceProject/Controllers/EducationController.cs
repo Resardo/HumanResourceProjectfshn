@@ -77,17 +77,16 @@ namespace HumanResourceProject.Controllers
         [Route("userId")]
         public IActionResult UpdateEducation([FromBody] EducationDTO education )
         {
-            try
+            var educationToUpdate = _educationdomain.GetEducationById(education.Id);
+            if (education == null || educationToUpdate == null)
             {
-
-
-                _educationdomain.Update(education);
-                return Ok("updated");
+                return BadRequest("Job does not exist.");
             }
-            catch (Exception)
+            else
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Error updating data");
+                _educationdomain.Update(education);
+                return Ok();
+
             }
         }
     

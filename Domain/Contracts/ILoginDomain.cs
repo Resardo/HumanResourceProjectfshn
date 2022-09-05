@@ -9,7 +9,7 @@ namespace Domain.Contracts
 {
     public interface ILoginDomain
     {
-       LoginDTO GetAllUsers(LoginCredentialsDTO dto);
+       LoginDTO Auth(LoginCredentialsDTO dto);
         
     }
 }

@@ -40,7 +40,7 @@ namespace HumanResourceProject.Controllers
                 }
                 
                
-                auth = _loginDomain.GetAllUsers(login);
+                auth = _loginDomain.Auth(login);
                 if (auth != null)
                 {
                     var token = Generate(auth);
@@ -118,7 +118,7 @@ namespace HumanResourceProject.Controllers
 
                 new Claim(ClaimTypes.NameIdentifier,dto.Username),
                 new Claim(ClaimTypes.Email,dto.Email),
-                new Claim(ClaimTypes.Role,"admin"),
+                new Claim(ClaimTypes.Role,""),
 
 
             };
