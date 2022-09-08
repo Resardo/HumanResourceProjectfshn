@@ -20,10 +20,12 @@ namespace Domain.Mappings
 
             CreateMap<LoginCredentialsDTO, Employee>();/*.ForSourceMember (x => x.Password, opt => opt.DoNotValidate());*/
            CreateMap<Education, EducationDTO>().ReverseMap();
+            CreateMap<Employee, LoginDataDTO>().ReverseMap();
+
 
 
         }
-        
+
 
         #endregion
 

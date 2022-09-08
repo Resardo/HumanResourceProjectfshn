@@ -119,10 +119,7 @@ namespace HumanResourceProject.Controllers
                 new Claim(ClaimTypes.NameIdentifier,dto.Username),
                 new Claim(ClaimTypes.Email,dto.Email),
                 new Claim(ClaimTypes.Role,""),
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 
 
             };
