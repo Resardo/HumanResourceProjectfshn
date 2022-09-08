@@ -29,6 +29,7 @@ namespace Domain.Concrete
 
             var data = _mapper.Map<LoginCredentialsDTO, Employee>(dto);
             var login = loginRepository.Generate(data);
+            
             //var role = login.UserRoles.FirstOrDefault().ToList();
             if (login == null) { return null; }
             else
